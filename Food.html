@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>  
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    .navbar {
+       position: absolute;  /* Posisi navbar di atas gambar */
+       top: 0;  /* Letakkan navbar di atas */
+       left: 0;
+       right: 0;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       padding: 10px 30px;
+       background-color: rgba(51, 51, 51, 0.7); /* Set background transparan untuk navbar */
+       box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+       border-radius: 15px;
+       z-index: 10; /* Pastikan navbar tetap di atas */
+        }
+
+        /* Logo or placeholder for logo */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white; /* Optional: Logo text color */
+        }
+
+        /* Styling for the image (logo) */
+        .navbar img {
+            height: 170px;
+            width: 160px;
+        }
+
+        /* Styling for the navigation list */
+        .aku {
+            display: flex;
+            gap: 20px;  /* Adds spacing between list items */
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .aku li {
+            font-size: 18px;
+        }
+
+        /* Optional: styling for links */
+        .aku a {
+            text-decoration: none;
+            color: white; /* Link color */
+            padding: 10px;
+        }
+
+        .aku a:hover {
+            background-color: #007BFF; /* Change background color on hover */
+            color: white; /* Maintain text color on hover */
+        }
+
+        /* Styling for search bar */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #444;
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        .search-container input {
+            border: none;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 10px;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        .search-container button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .game {
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">MyLogo</div>  <!-- Optional Logo Text -->
+            <ul class="aku">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Report</a></li>
+            </ul>
+            <!-- Search bar container -->
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </div>
+        <section><img class="game" src="https://static.vecteezy.com/system/resources/thumbnails/033/662/051/small_2x/cartoon-lofi-young-manga-style-girl-while-listening-to-music-in-the-rain-ai-generative-photo.jpg" alt=""></section>
+</body>
+</html>

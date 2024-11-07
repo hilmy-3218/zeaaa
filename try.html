@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Menghapus padding dan margin default untuk body */
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        /* Styling untuk navbar, yang selalu di atas gambar */
+        .navbar {
+            position: absolute; /* Memastikan navbar tetap di atas gambar */
+            top: 0; /* Letakkan navbar di atas */
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Menyusun elemen navbar secara horizontal */
+            padding: 10px 30px;
+            background-color: rgba(51, 51, 51, 0.7); /* Memberikan latar belakang transparan pada navbar */
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5); /* Memberikan efek bayangan */
+            border-radius: 15px; /* Membuat sudut navbar melengkung */
+            z-index: 10; /* Memastikan navbar selalu berada di atas konten lainnya */
+        }
+
+        /* Styling untuk logo di navbar */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white; /* Warna teks logo */
+        }
+
+        /* Styling untuk elemen menu di navbar */
+        .aku {
+            display: flex;
+            gap: 20px; /* Memberikan jarak antar item menu */
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .aku li {
+            font-size: 18px;
+        }
+
+        /* Styling untuk tautan (link) di menu */
+        .aku a {
+            text-decoration: none; /* Menghilangkan garis bawah di tautan */
+            color: white; /* Warna teks tautan */
+            padding: 10px; /* Memberikan ruang di sekitar teks tautan */
+        }
+
+        /* Efek hover pada tautan di navbar */
+        .aku a:hover {
+            background-color: #007BFF; /* Warna latar belakang berubah saat hover */
+            color: white; /* Warna teks tetap putih saat hover */
+        }
+
+        /* Styling untuk kolom pencarian */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #444;
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        .search-container input {
+            border: none;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 10px;
+            margin-right: 10px;
+            width: 200px; /* Lebar input pencarian */
+        }
+
+        .search-container button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Efek hover pada tombol pencarian */
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styling untuk gambar latar belakang yang memenuhi seluruh layar */
+        .game {
+            background-size: cover; /* Menutupi seluruh layar dengan gambar */
+            height: 100vh; /* Menyesuaikan tinggi gambar dengan tinggi layar */
+            width: 100%; /* Menyesuaikan lebar gambar dengan lebar layar */
+            background-position: center; /* Menempatkan gambar di tengah */
+            filter: blur(8px); /* Efek blur di latar belakang gambar */
+        }
+
+        /* Styling untuk form login yang terpusat di tengah halaman */
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Memastikan form login terpusat secara vertikal dan horizontal */
+            background-color: rgba(255, 255, 255, 0.9); /* Memberikan latar belakang transparan pada form */
+            padding: 30px;
+            border-radius: 10px; /* Sudut form menjadi melengkung */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan lembut di sekitar form */
+            width: 400px; /* Lebar form */
+            max-width: 90%; /* Form tidak lebih lebar dari 90% lebar layar */
+            z-index: 15%; /* Form berada di atas gambar latar belakang */
+        }
+
+        /* Styling untuk elemen input dan textarea di form login */
+        .login-container input {
+            width: 100%; /* Membuat input mengisi lebar form */
+            padding: 10px;
+            margin-bottom: 20px; /* Memberikan jarak antar elemen form */
+            border-radius: 5px;
+            border: 1px solid #ccc; /* Memberikan border abu-abu */
+        }
+
+        /* Styling untuk link yang tampak seperti tombol */
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF; /* Warna latar belakang tombol */
+            color: white; /* Warna teks tombol */
+            text-decoration: none; /* Menghilangkan garis bawah pada link */
+            border-radius: 5px; /* Sudut tombol melengkung */
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #007BFF; /* Border sesuai dengan warna tombol */
+            font-size: 16px; /* Ukuran teks */
+        }
+
+        /* Efek hover pada tombol link */
+        .login-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3; /* Border berubah saat hover */
+        }
+
+        /* Asap efek di pinggiran form login */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: rgba(0, 0, 0, 0.1);
+            filter: blur(15px); /* Efek kabut di pinggiran form */
+            border-radius: 15px; /* Membuat kabut mengikuti bentuk sudut form */
+            z-index: -1; /* Pastikan kabut berada di bawah form */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Image Section -->
+    <section>
+        <img class="game" src="https://static.vecteezy.com/system/resources/thumbnails/033/662/051/small_2x/cartoon-lofi-young-manga-style-girl-while-listening-to-music-in-the-rain-ai-generative-photo.jpg" alt="Background Image">
+    </section>
+
+    <!-- Form Login -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <!-- Mengganti tombol dengan link -->
+            <a href="http://127.0.0.1:5500/Food.html" class="login-button">LOGIN</a> <!-- Ganti URL dengan yang sesuai -->
+        </form>
+    </div>
+
+</body>
+</html>
